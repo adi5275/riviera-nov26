@@ -334,6 +334,21 @@ section{padding:88px 22px}
 .tab-btn[aria-selected="true"]{background:var(--green);color:var(--gold-light)}
 .tab-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .tab-panel[hidden]{display:none}
+.go-tab{font:inherit;font-weight:700;color:var(--green);background:none;border:none;border-bottom:1px solid var(--gold);padding:0 0 1px;cursor:pointer;transition:color .2s ease}
+.go-tab:hover{color:#4a7d97}
+.go-tab:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.days--steps .d-n{background:var(--green);color:var(--gold-light)}
+.voucher{background:#fff;border:1px solid var(--gold);border-radius:16px;padding:20px 22px 8px;margin:22px 0}
+.voucher-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:12px;border-bottom:1px solid var(--cream-dark)}
+.voucher-kind{font-size:.82rem;font-weight:700;color:var(--muted)}
+.voucher-num{font-size:1.35rem;font-weight:800;color:var(--green)}
+.voucher-num small{font-size:.8rem;font-weight:600;color:var(--muted);margin-inline-end:6px}
+.voucher dl{margin:0}
+.voucher-row{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid var(--cream-dark);font-size:.92rem;line-height:1.6}
+.voucher-row:last-child{border-bottom:none}
+.voucher-row dt{flex:0 0 96px;color:var(--muted);font-size:.84rem}
+.voucher-row dd{margin:0;flex:1;font-weight:600}
+.voucher-row dd small{display:block;font-weight:400;color:var(--muted);font-size:.84rem}
 /* בהדפסה כל הלשוניות נפתחות - PDF חייב להכיל את המדריך המלא */
 @media print{
   .tabs{display:none}
@@ -677,6 +692,8 @@ section.intro{padding-top:70px;padding-bottom:70px}
 <nav class="tabs" role="tablist" aria-label="פרטי הנסיעה" id="tabsBar">
   <div class="tabs-inner">
             <button class="tab-btn" role="tab" data-tab="opt3" aria-selected="true">הטיסה · 18-22</button>
+    <button class="tab-btn" role="tab" data-tab="checkin" aria-selected="false">צ'ק-אין</button>
+    <button class="tab-btn" role="tab" data-tab="munich" aria-selected="false">הקונקשן במינכן</button>
     <button class="tab-btn" role="tab" data-tab="hotel" aria-selected="false">איפה תישנו</button>
     <button class="tab-btn" role="tab" data-tab="places" aria-selected="false">מה עושים שם</button>
     <button class="tab-btn" role="tab" data-tab="food" aria-selected="false">איפה לאכול</button>
@@ -731,14 +748,14 @@ section.intro{padding-top:70px;padding-bottom:70px}
       <div class="inc-row yes"><span class="ic">✓</span><div><b>תיק אישי לכל אחד</b><small>עד 40x30x10 ס"מ, נכנס מתחת למושב</small></div></div>
       <div class="inc-row part"><span class="ic">~</span><div><b>שתייה קלה</b><small>בלי ארוחה</small></div></div>
       <div class="inc-row yes"><span class="ic">✓</span><div><b>מזוודה של 23 ק"ג לכל אחד</b><small>בשני הכיוונים</small></div></div>
-      <div class="inc-row part"><span class="ic">$</span><div><b>בחירת מושב מראש</b><small>בתשלום. הצ'ק-אין המקוון בחינם, ונפתח 23 שעות לפני הטיסה</small></div></div>
+      <div class="inc-row part"><span class="ic">$</span><div><b>בחירת מושב מראש</b><small>בתשלום. הצ'ק-אין המקוון בחינם</small></div></div>
       <div class="inc-row no"><span class="ic">✕</span><div><b>שינוי תאריכים</b><small>לא אפשרי בכרטיס הזה</small></div></div>
     </div>
 
 
     <h3 class="sub-h" data-reveal>איך הימים שם נראים</h3>
     <div class="days" data-reveal>
-      <div class="d"><span class="d-n">18</span><div><b>נחיתה בניס ב-23:20</b><small>מונית למונקו, במלון בין 00:30 ל-01:00</small></div></div>
+      <div class="d"><span class="d-n">18</span><div><b>נחיתה בניס ב-23:20</b><small>נהג פרטי למונקו, במלון בין 00:30 ל-01:00</small></div></div>
       <div class="d d--key"><span class="d-n">19</span><div><b>הפגישה</b><small>במלון שלכם. חג לאומי במונקו</small></div></div>
       <div class="d"><span class="d-n">20</span><div><b>יום פנוי</b><small>יום שישי. מונקו, או ניס ב-24 דקות ברכבת</small></div></div>
       <div class="d"><span class="d-n">21</span><div><b>עוד יום פנוי</b><small>שבת</small></div></div>
@@ -747,7 +764,18 @@ section.intro{padding-top:70px;padding-bottom:70px}
 
     <div class="tip" data-reveal><span class="tip-label">כרטיס אחד</span>כל ארבע הטיסות על כרטיס אחד של לופטהנזה. אם טיסה בדרך מתעכבת, חברת התעופה אחראית להעביר אתכם לטיסה הבאה.</div>
     <div class="warn" data-reveal><span class="warn-label">מה לקחת בחשבון</span>הנחיתה ב-23:20, בלילה שלפני הפגישה. אם הטיסה מתעכבת, אין יום רזרבה לפני הפגישה. וגם מפספסים את זיקוקי החג של מונקו, שמתחילים ב-20:10 באותו ערב. שעות הטיסות עשויות לזוז בכמה דקות. כדאי לבדוק באפליקציית לופטהנזה יום לפני.</div>
-    <div class="tip" data-reveal><span class="tip-label">בנחיתה ב-23:20</span>מונית מהשדה למונקו, 30-45 דקות. המחיר קבוע, כ-95 אירו, ובלילה מוניות ניס מבקשות 100-110 אירו. המוניות עומדות מול הטרמינל. עם איסוף המזוודות תגיעו למלון בין 00:30 ל-01:00.</div>
+    <div class="voucher" data-reveal>
+      <div class="voucher-head"><span class="voucher-kind">שובר הסעה · Cityride</span><span class="voucher-num"><small>מספר הזמנה</small><bdi dir="ltr">889380</bdi></span></div>
+      <dl>
+        <div class="voucher-row"><dt>מסלול</dt><dd>שדה התעופה של ניס, אל <bdi dir="ltr">Novotel Monte Carlo</bdi></dd></div>
+        <div class="voucher-row"><dt>מתי</dt><dd>יום רביעי, 18 בנובמבר<small>לפי הנחיתה של טיסה LH2274 ב-23:20</small></dd></div>
+        <div class="voucher-row"><dt>רכב</dt><dd>רכב פרטי, פרימיום, לשני נוסעים<small>הנסיעה למונקו 30-45 דקות. במלון בין 00:30 ל-01:00</small></dd></div>
+        <div class="voucher-row"><dt>כבודה</dt><dd>מקום לשלוש מזוודות<small>טרולי נחשב מזוודה</small></dd></div>
+        <div class="voucher-row"><dt>על שם</dt><dd>רחמים<small>שולם מראש</small></dd></div>
+        <div class="voucher-row"><dt>Cityride</dt><dd><bdi dir="ltr">+972 3 613 3800</bdi></dd></div>
+      </dl>
+    </div>
+    <div class="tip" data-reveal><span class="tip-label">לפני הטיסה</span><button type="button" class="go-tab" data-go="checkin">צ'ק-אין וכרטיסי עלייה למטוס</button> · <button type="button" class="go-tab" data-go="munich">הקונקשן במינכן, צעד אחרי צעד</button></div>
     <h3 class="sub-h" data-reveal>יום הפגישה ומוניות</h3>
     <div class="inc" data-reveal>
       <div class="inc-row yes"><span class="ic">✓</span><div><b>הפגישה במלון, בלי נסיעות</b><small>יורדים מהחדר לפגישה. לא תלויים ברכבות, בשביתות או במזג האוויר</small></div></div>
@@ -756,6 +784,103 @@ section.intro{padding-top:70px;padding-bottom:70px}
       <div class="inc-row part"><span class="ic">~</span><div><b>יום בניס? הרכבת עד 22:00</b><small>24 דקות לכל כיוון. עד דצמבר 2027 יש עבודות על הקו, ובלילות ראשון עד חמישי אין רכבות בין 22:00 ל-6:00. לפני נסיעה ברכבת כדאי לבדוק באפליקציית SNCF Connect</small></div></div>
     </div>
     <p class="when-note" data-reveal>נבדק ב-15.11.2026: אתר שדה התעופה של ניס, VisitMonaco, Taxi Monaco ואתר הרכבות SNCF TER Sud.</p>
+  </div>
+</section>
+</div>
+
+
+<!-- ===================== צ'ק-אין ===================== -->
+<div class="tab-panel" data-tab="checkin" hidden>
+<section>
+  <div class="sec-inner">
+    <div class="sec-head" data-reveal>
+      <div class="eyebrow eyebrow--green">צ'ק-אין</div>
+      <h2 class="section-heading section-heading--dark">צ'ק-אין אחד לשתי הטיסות</h2>
+      <p class="section-sub section-sub--dark">שתי הטיסות על אותו כרטיס, ולכן צ'ק-אין אחד מכסה את שתיהן. בסופו יש לכל אחד שני כרטיסי עלייה למטוס.</p>
+    </div>
+
+    <div class="price-hero" data-reveal>
+      <div class="price-main">2 + 2</div>
+      <div class="price-sub">שני כרטיסי עלייה למטוס לכל אחד</div>
+      <div class="price-note">אחד לתל אביב-מינכן, אחד למינכן-ניס</div>
+      <div class="price-note">צ'ק-אין אחד מכסה את שתי הטיסות</div>
+    </div>
+
+    <h3 class="sub-h" data-reveal>מה חשוב לדעת</h3>
+    <div class="inc" data-reveal>
+      <div class="inc-row yes"><span class="ic">✓</span><div><b>ארבעה כרטיסי עלייה למטוס, שניים לכל אחד</b><small>שומרים אותם בטלפון. כדאי גם צילום מסך, למקרה שאין קליטה בשדה</small></div></div>
+      <div class="inc-row yes"><span class="ic">✓</span><div><b>במינכן לא ניגשים לשום דלפק</b><small>הכרטיס לטיסה לניס כבר אצלכם. עוברים ביקורת דרכונים והולכים לשער</small></div></div>
+      <div class="inc-row part"><span class="ic">~</span><div><b>חסר כרטיס לטיסה השנייה?</b><small>מדפיסים אותו בדלפק של לופטהנזה בנתב"ג, כשמוסרים את המזוודות</small></div></div>
+    </div>
+
+    <h3 class="sub-h" data-reveal>בנתב"ג, יום רביעי</h3>
+    <div class="days days--steps" data-reveal>
+      <div class="d"><span class="d-n">1</span><div><b>מגיעים ב-14:10</b><small>טרמינל 3, שלוש שעות לפני ההמראה ב-17:10</small></div></div>
+      <div class="d"><span class="d-n">2</span><div><b>מוסרים מזוודות</b><small>בדלפק של לופטהנזה. המזוודות נשלחות עד ניס</small></div></div>
+      <div class="d d--key"><span class="d-n">3</span><div><b>בודקים לפני שממשיכים</b><small>על מדבקת המזוודה כתוב NCE, ולכל אחד יש שני כרטיסי עלייה</small></div></div>
+      <div class="d"><span class="d-n">4</span><div><b>ביטחון, דרכונים, שער</b><small>טיסה LH681 למינכן</small></div></div>
+    </div>
+
+    <h3 class="sub-h" data-reveal>מטען נייד: הכללים של לופטהנזה</h3>
+    <div class="inc" data-reveal>
+      <div class="inc-row yes"><span class="ic">✓</span><div><b>עד שני מטענים ניידים לכל אחד, בתיק היד</b><small>כל מטען עד 100 וואט-שעה, בערך <bdi dir="ltr">27,000 mAh</bdi>. המספר כתוב על המטען</small></div></div>
+      <div class="inc-row no"><span class="ic">✕</span><div><b>במזוודה שנשלחת לבטן המטוס</b><small>אסור. גם סיגריה אלקטרונית</small></div></div>
+      <div class="inc-row no"><span class="ic">✕</span><div><b>בתא שמעל המושבים</b><small>המטען נשאר מתחת למושב, בכיס המושב או עליכם</small></div></div>
+      <div class="inc-row no"><span class="ic">✕</span><div><b>שימוש או טעינה בזמן הטיסה</b><small>מטעינים את הטלפונים לפני העלייה למטוס</small></div></div>
+    </div>
+    <p class="when-note" data-reveal style="margin-top:14px">נבדק ב-16.11.2026 באתר לופטהנזה. הכללים בתוקף מ-15.1.2026.</p>
+  </div>
+</section>
+</div>
+
+
+<!-- ===================== הקונקשן במינכן ===================== -->
+<div class="tab-panel" data-tab="munich" hidden>
+<section>
+  <div class="sec-inner">
+    <div class="sec-head" data-reveal>
+      <div class="eyebrow eyebrow--green">מינכן</div>
+      <h2 class="section-heading section-heading--dark">שעה וחצי במינכן, צעד אחרי צעד</h2>
+      <p class="section-sub section-sub--dark">מינכן היא הכניסה שלכם לאירופה, ולכן ביקורת הדרכונים נעשית שם, בין שתי הטיסות. אין ויזה, אין טפסים ואין מה להכין מראש.</p>
+    </div>
+
+    <div class="leg" data-reveal>
+      <div class="leg-head"><span class="leg-dir">הקונקשן</span><span class="leg-date">יום רביעי, 18 בנובמבר</span></div>
+      <div class="route">
+        <div class="pt"><b>20:20</b><span>נחיתה במינכן</span></div>
+        <div class="seg"><i></i><em>הולכים</em></div>
+        <div class="pt pt--stop"><b>דרכונים</b><span>צילום פנים וטביעות אצבע</span></div>
+        <div class="seg"><i></i><em>לשער</em></div>
+        <div class="pt"><b>21:50</b><span>המראה לניס</span></div>
+      </div>
+      <div class="leg-codes">LH681 · LH2274</div>
+    </div>
+
+    <h3 class="sub-h" data-reveal>ארבעה צעדים</h3>
+    <div class="days days--steps" data-reveal>
+      <div class="d"><span class="d-n">1</span><div><b>יורדים והולכים</b><small>לפי השילוט לטיסות המשך ולביקורת דרכונים. שירותים וקפה אחרי הביקורת</small></div></div>
+      <div class="d"><span class="d-n">2</span><div><b>דרכון ביד</b><small>בלי כיסוי. כתובת המלון ואישור הטיסה חזרה בהישג יד</small></div></div>
+      <div class="d d--key"><span class="d-n">3</span><div><b>פנים וטביעות אצבע</b><small>מצלמים וסורקים, ואחר כך שוטר. הוא עשוי לשאול איפה אתם ישנים ומתי חוזרים</small></div></div>
+      <div class="d"><span class="d-n">4</span><div><b>ישר לשער</b><small>טיסה LH2274 לניס. מספר השער מופיע על המסכים</small></div></div>
+    </div>
+
+    <h3 class="sub-h" data-reveal>מה חשוב לדעת</h3>
+    <div class="inc" data-reveal>
+      <div class="inc-row yes"><span class="ic">✓</span><div><b>המזוודות ממשיכות לבד עד ניס</b><small>במינכן לא אוספים אותן</small></div></div>
+      <div class="inc-row yes"><span class="ic">✓</span><div><b>בניס אין ביקורת דרכונים נוספת</b><small>אוספים מזוודות ויוצאים אל הנהג</small></div></div>
+      <div class="inc-row part"><span class="ic">~</span><div><b>הדרכון לא מקבל חותמת</b><small>הרישום דיגיטלי, וזה תקין</small></div></div>
+      <div class="inc-row part"><span class="ic">~</span><div><b>התור עשוי להיות ארוך מהמוכר לכם</b><small>בכניסה הראשונה מאז שהמערכת הופעלה הרישום לוקח יותר זמן. מהפעם השנייה רק מאמתים את הפרטים</small></div></div>
+    </div>
+
+    <div class="warn" data-reveal><span class="warn-label">אם הטיסה לניס יוצאת בלעדיכם</span>כל הטיסות על כרטיס אחד, ולופטהנזה משבצת אתכם בטיסה הבאה לניס. ניגשים לדלפק השירות של לופטהנזה בטרמינל, וכותבים לי בוואטסאפ. הטיסה הבאה עשויה לצאת רק למחרת בבוקר, ולכן במינכן לא עוצרים בדרך.</div>
+
+    <h3 class="sub-h" data-reveal>בדרך חזרה, 22 בנובמבר</h3>
+    <div class="inc" data-reveal>
+      <div class="inc-row yes"><span class="ic">✓</span><div><b>נחיתה במינכן ב-09:40, המראה לתל אביב ב-11:20</b><small>שעה ו-40 דקות בין הטיסות</small></div></div>
+      <div class="inc-row part"><span class="ic">~</span><div><b>שוב ביקורת דרכונים, הפעם ביציאה מאירופה</b><small>הפרטים שלכם כבר שמורים, ולכן היא קצרה יותר</small></div></div>
+      <div class="inc-row yes"><span class="ic">✓</span><div><b>המזוודות ממשיכות לבד עד תל אביב</b><small>מוסרים אותן בניס ופוגשים אותן בנתב"ג</small></div></div>
+    </div>
+    <p class="when-note" data-reveal style="margin-top:14px">נבדק ב-15.11.2026 באתר הרשמי של האיחוד האירופי, <bdi dir="ltr" style="white-space:nowrap">travel-europe.europa.eu</bdi>.</p>
   </div>
 </section>
 </div>
@@ -777,6 +902,19 @@ section.intro{padding-top:70px;padding-bottom:70px}
     </figure>
 
     <div class="price-soon" data-reveal><b>את מחיר הלינה אשלח לכם בנפרד</b><span>יחד עם סגירת הטיסות</span></div>
+
+    <div class="voucher" data-reveal>
+      <div class="voucher-head"><span class="voucher-kind">שובר מלון · Travelor</span><span class="voucher-num"><small>מספר הזמנה</small><bdi dir="ltr">932551</bdi></span></div>
+      <dl>
+        <div class="voucher-row"><dt>מלון</dt><dd><bdi dir="ltr">Novotel Monte Carlo</bdi><small><bdi dir="ltr">16 Boulevard Princesse Charlotte, Monaco</bdi></small></dd></div>
+        <div class="voucher-row"><dt>צ'ק-אין</dt><dd>יום רביעי, 18 בנובמבר<small>מ-15:00</small></dd></div>
+        <div class="voucher-row"><dt>צ'ק-אאוט</dt><dd>יום ראשון, 22 בנובמבר<small>עד 12:00. ארבעה לילות</small></dd></div>
+        <div class="voucher-row"><dt>חדר</dt><dd>חדר סופיריור אחד, מיטה זוגית וספה נפתחת<small>שני מבוגרים, לינה בלבד</small></dd></div>
+        <div class="voucher-row"><dt>על שם</dt><dd>רחמים<small>בצ'ק-אין מציגים דרכון וכרטיס אשראי</small></dd></div>
+        <div class="voucher-row"><dt>המלון</dt><dd><bdi dir="ltr">+377 99 99 83 00</bdi></dd></div>
+        <div class="voucher-row"><dt>Travelor</dt><dd><bdi dir="ltr">03-677-00-99</bdi></dd></div>
+      </dl>
+    </div>
 
     <h3 class="sub-h" data-reveal>למה דווקא הוא</h3>
     <div class="inc" data-reveal>
@@ -1022,9 +1160,9 @@ section.intro{padding-top:70px;padding-bottom:70px}
 
     <h3 class="sub-h" data-reveal>כניסה לאירופה</h3>
     <div class="checklist" data-reveal>
-      <div class="check-item"><span class="check-mark">✓</span><div><div class="check-name">אין צורך בוויזה, ואין צורך באישור ETIAS</div><div class="check-desc">לפי האתר הרשמי של האיחוד האירופי, ETIAS עוד לא פועל, ואין להגיש בקשות. נבדק 12.11.2026.</div></div></div>
+      <div class="check-item"><span class="check-mark">✓</span><div><div class="check-name">אין צורך בוויזה, ואין צורך באישור ETIAS</div><div class="check-desc">לפי האתר הרשמי של האיחוד האירופי, ETIAS עוד לא פועל, ואין להגיש בקשות. נבדק שוב ב-15.11.2026.</div></div></div>
       <div class="check-item"><span class="check-mark">✓</span><div><div class="check-name">דרכון בתוקף</div><div class="check-desc">באירופה הדרכון צריך להיות בתוקף לפחות שלושה חודשים אחרי יום החזרה. כדאי לבדוק את שני הדרכונים כבר עכשיו.</div></div></div>
-      <div class="check-item"><span class="check-mark">!</span><div><div class="check-name">ביקורת גבולות בעצירה, לא בניס</div><div class="check-desc">נכנסים לאירופה במינכן, ושם עוברים ביקורת דרכונים לפני הטיסה לניס. בעצירה כדאי ללכת ישר לשער, בלי לעצור בדרך.</div></div></div>
+      <div class="check-item"><span class="check-mark">!</span><div><div class="check-name">ביקורת הדרכונים נעשית במינכן</div><div class="check-desc">שם נכנסים לאירופה, ושם מצלמים פנים ולוקחים טביעות אצבע. אין מה למלא מראש. כל הצעדים בלשונית <button type="button" class="go-tab" data-go="munich">הקונקשן במינכן</button>.</div></div></div>
     </div>
 
     <h3 class="sub-h" data-reveal>מה לארוז</h3>
@@ -1045,7 +1183,7 @@ section.intro{padding-top:70px;padding-bottom:70px}
           <li>שני הדרכונים</li>
           <li>אישור הטיסות וכתובת המלון, גם מודפסים</li>
           <li>מתאם לשקע אירופאי</li>
-          <li>מטען ומטען נייד</li>
+          <li>מטען ומטען נייד. המטען הנייד רק בתיק היד, אף פעם לא במזוודה</li>
           <li>תרופות קבועות לכל הימים</li>
           <li>מטרייה מתקפלת קטנה</li>
           <li>נוזלים עד 100 מ"ל לבקבוק, בשקית שקופה</li>
@@ -1133,6 +1271,9 @@ section.intro{padding-top:70px;padding-bottom:70px}
       var n = tabBtns[(i + d + tabBtns.length) % tabBtns.length];
       n.focus(); showTab(n.dataset.tab, true, true);
     });
+  });
+  document.querySelectorAll('.go-tab').forEach(function(g){
+    g.addEventListener('click', function(){ showTab(g.dataset.go, true, true); });
   });
   document.querySelectorAll('.pick').forEach(function(p){
     p.addEventListener('click', function(){ showTab(p.dataset.go, true, true); });
