@@ -640,6 +640,18 @@ section.intro{padding-top:70px;padding-bottom:70px}
 @media (prefers-reduced-motion:reduce){.logo-card::before{animation:beamSpin 4.5s linear infinite!important}.sky-logo::after{animation:none!important;opacity:0!important}}
 @media print{.logo-card::before,.sky-logo::after{display:none!important}.logo-card{filter:none!important;border:1px solid #C2A060}}
 /* ==== סוף רכיב הלוגו ==== */
+
+/* סרט החשיפה (16.11.2026) */
+.trip-film{margin:34px auto 0;max-width:340px;text-align:center}
+.trip-film__frame{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:9/16;background:#120d0a;box-shadow:0 18px 40px rgba(42,42,40,.18);outline:1px solid var(--gold-light);outline-offset:5px}
+.trip-film video{display:block;width:100%;height:100%;object-fit:cover}
+.trip-film__play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.35));border:0;cursor:pointer;padding:0;transition:opacity .4s var(--ease-out)}
+.trip-film__play span{width:76px;height:76px;border-radius:50%;background:rgba(250,246,238,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .35s var(--ease-out)}
+.trip-film__play:hover span{transform:scale(1.06)}
+.trip-film__play svg{margin-inline-start:5px}
+.trip-film.is-playing .trip-film__play{opacity:0;pointer-events:none}
+.trip-film__note{margin-top:16px;color:var(--muted);font-size:15px}
+@media (prefers-reduced-motion:reduce){.trip-film__play,.trip-film__play span{transition:none}}
 </style>
 <script>
 /* שער תפוגה - גרסת לקוח בלבד */
@@ -685,6 +697,14 @@ section.intro{padding-top:70px;padding-bottom:70px}
       <div class="eyebrow eyebrow--sky">מה סגרנו</div>
       <h2 class="section-heading section-heading--dark">ארבעה ימים במונקו, והפגישה במלון שלכם</h2>
       <p class="section-sub section-sub--dark">טסים עם לופטהנזה דרך מינכן ב-18 בנובמבר, וחוזרים ב-22. ישנים ארבעה לילות ב-<bdi>Novotel Monte-Carlo</bdi>, במרכז מונקו, והפגישה ב-19 מתקיימת במלון עצמו. אחריה נשארים לכם יומיים פנויים.</p>
+    </div>
+
+    <div class="trip-film" id="tripFilm" data-reveal>
+      <div class="trip-film__frame">
+        <video id="tripFilmVideo" src="film/riviera-film.mp4" poster="film/poster.jpg" playsinline preload="none" controls aria-label="סרט קצר: ככה זה ייראה"></video>
+        <button class="trip-film__play" type="button" aria-label="לנגן את הסרט"><span><svg width="26" height="30" viewBox="0 0 26 30" aria-hidden="true"><path d="M2 2 L24 15 L2 28 Z" fill="#2D5016"/></svg></span></button>
+      </div>
+      <p class="trip-film__note">דקה אחת, עם מוזיקה. כדאי להגביר את הקול.</p>
     </div>
   </div>
 </section>
@@ -1453,6 +1473,12 @@ section.intro{padding-top:70px;padding-bottom:70px}
 document.querySelectorAll('.logo-card').forEach(function(c){
   c.addEventListener('touchstart',function(){ c.classList.add('is-lit'); clearTimeout(c._t); c._t=setTimeout(function(){ c.classList.remove('is-lit'); },1500); },{passive:true});
 });
+</script>
+
+<script>
+(function(){var w=document.getElementById('tripFilm');if(!w)return;var v=document.getElementById('tripFilmVideo'),b=w.querySelector('.trip-film__play');
+b.addEventListener('click',function(){w.classList.add('is-playing');v.play();});
+v.addEventListener('play',function(){w.classList.add('is-playing');});})();
 </script>
 </body>
 </html>
