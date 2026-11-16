@@ -349,6 +349,17 @@ section{padding:88px 22px}
 .voucher-row dt{flex:0 0 96px;color:var(--muted);font-size:.84rem}
 .voucher-row dd{margin:0;flex:1;font-weight:600}
 .voucher-row dd small{display:block;font-weight:400;color:var(--muted);font-size:.84rem}
+.doc-orig{display:flex;gap:16px;align-items:center;margin:4px 0 14px;padding-top:16px;border-top:1px dashed var(--gold)}
+.doc-thumb{flex:0 0 92px;display:block;border:1px solid var(--cream-dark);border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(42,42,40,.10);transition:transform .3s var(--ease-out)}
+.doc-thumb img{display:block;width:92px;height:auto}
+.doc-thumb:hover{transform:translateY(-2px)}
+.doc-info{flex:1;min-width:0}
+.doc-info b{display:block;font-size:.98rem;color:var(--green)}
+.doc-info small{display:block;color:var(--muted);font-size:.84rem;line-height:1.55;margin:2px 0 10px}
+.doc-btns{display:flex;flex-wrap:wrap;gap:8px}
+.doc-btn{flex:1 1 auto;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 18px;border-radius:40px;font-weight:700;font-size:.9rem;text-decoration:none;background:var(--green);color:var(--gold-light)}
+.doc-btn.ghost{background:transparent;color:var(--green);border:1px solid var(--green)}
+@media(max-width:560px){.doc-orig{align-items:flex-start}.doc-thumb{flex-basis:76px}.doc-thumb img{width:76px}}
 /* בהדפסה כל הלשוניות נפתחות - PDF חייב להכיל את המדריך המלא */
 @media print{
   .tabs{display:none}
@@ -855,6 +866,12 @@ section.intro{padding-top:70px;padding-bottom:70px}
         <div class="voucher-row"><dt>איפה נפגשים</dt><dd>באולם מקבלי הפנים<small>הנהג מחכה עם שלט, ועליו השם שבהזמנה באנגלית</small></dd></div>
         <div class="voucher-row"><dt>מוקד 24/7</dt><dd>טלפון <a href="tel:+972776707001" style="color:inherit;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px"><bdi dir="ltr">+972 77 670 7001</bdi></a><small>וואטסאפ, בהודעה: <bdi dir="ltr">+972 54 626 9955</bdi></small></dd></div>
       </dl>
+      <div class="doc-orig">
+        <a class="doc-thumb" href="docs/transfer-voucher.pdf" target="_blank" rel="noopener" aria-label="לפתוח את השובר"><img src="docs/transfer-voucher-1.jpg" alt="העמוד הראשון של שובר ההסעה של Cityride" width="92" height="130" loading="lazy" decoding="async"></a>
+        <div class="doc-info"><b>השובר המקורי של Cityride</b><small>עמוד אחד. אם הנהג או המוקד מבקשים, מראים אותו מהטלפון</small>
+          <div class="doc-btns"><a class="doc-btn" href="docs/transfer-voucher.pdf" target="_blank" rel="noopener">לפתוח את השובר</a><a class="doc-btn ghost" href="docs/transfer-voucher.pdf" download>לשמור בטלפון</a></div>
+        </div>
+      </div>
     </div>
 
     <h3 class="sub-h" data-reveal>3. המלון</h3>
@@ -869,6 +886,12 @@ section.intro{padding-top:70px;padding-bottom:70px}
         <div class="voucher-row"><dt>המלון</dt><dd><bdi dir="ltr">+377 99 99 83 00</bdi></dd></div>
         <div class="voucher-row"><dt>לכל שאלה</dt><dd>עדי, בוואטסאפ<small><bdi dir="ltr">+972 50-334-9077</bdi></small></dd></div>
       </dl>
+      <div class="doc-orig">
+        <a class="doc-thumb" href="docs/hotel-voucher.pdf" target="_blank" rel="noopener" aria-label="לפתוח את השובר"><img src="docs/hotel-voucher-1.jpg" alt="העמוד הראשון של שובר המלון, הזמנה 932551" width="92" height="130" loading="lazy" decoding="async"></a>
+        <div class="doc-info"><b>השובר המקורי של המלון</b><small>שלושה עמודים. אם בקבלה מבקשים אישור הזמנה, מראים אותו</small>
+          <div class="doc-btns"><a class="doc-btn" href="docs/hotel-voucher.pdf" target="_blank" rel="noopener">לפתוח את השובר</a><a class="doc-btn ghost" href="docs/hotel-voucher.pdf" download>לשמור בטלפון</a></div>
+        </div>
+      </div>
     </div>
 
     <p class="when-note" data-reveal>כל הפרטים על ההסעה, ומה עושים אם הנהג לא מגיע, בלשונית "הטיסה". הכול על המלון בלשונית "איפה תישנו".</p>
