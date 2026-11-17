@@ -665,6 +665,33 @@ section.intro{padding-top:70px;padding-bottom:70px}
 .trip-film__note{margin-top:16px;color:var(--muted);font-size:15px}
 @media (prefers-reduced-motion:reduce){.trip-film__play,.trip-film__play span{transition:none}}
 .tel{white-space:nowrap;unicode-bidi:isolate;color:inherit;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+/* כרטיסי עלייה למטוס */
+.bp-flight{background:#fff;border:1px solid var(--gold);border-radius:16px;padding:18px 20px 20px;margin:18px 0}
+.bp-fh{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;padding-bottom:10px;border-bottom:1px solid var(--cream-dark)}
+.bp-fh b{font-size:1.08rem;color:var(--green)}
+.bp-fh span{font-size:.82rem;font-weight:700;color:var(--muted)}
+.bp-times{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:8px;margin:14px 0 16px}
+.bp-times div{background:var(--cream);border-radius:10px;padding:8px 10px;line-height:1.35}
+.bp-times small{display:block;font-size:.74rem;color:var(--muted)}
+.bp-times b{font-size:1rem;color:var(--text)}
+.bp-times .bp-key{background:var(--cream-dark);box-shadow:inset 0 0 0 1px var(--gold)}
+.bp-pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.bp{border:1px solid var(--cream-dark);border-radius:14px;padding:14px;text-align:center}
+.bp-who{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:10px;text-align:start}
+.bp-who b{font-size:1rem}
+.bp-who span{font-size:.84rem;color:var(--muted)}
+.bp-who em{font-style:normal;font-weight:800;color:var(--green);font-size:1.15rem;margin-inline-start:4px}
+.bp-code{display:block;width:100%;max-width:240px;margin:0 auto;padding:0;border:0;background:#fff;cursor:zoom-in;border-radius:8px;transition:transform .3s ease-in-out}
+.bp-code:active{transform:scale(.97)}
+.bp-code img{display:block;width:100%;height:auto;image-rendering:pixelated}
+.bp-hint{display:block;margin-top:8px;font-size:.78rem;color:var(--muted)}
+.bp-full{position:fixed;inset:0;z-index:9999;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;text-align:center}
+.bp-full[hidden]{display:none}
+.bp-full img{width:min(86vw,62vh,520px);height:auto;image-rendering:pixelated}
+.bp-full b{font-size:1.2rem;color:var(--green)}
+.bp-full small{color:var(--muted);font-size:.9rem}
+.bp-full button{margin-top:6px;border:1px solid var(--gold);background:#fff;color:var(--green);border-radius:30px;padding:10px 26px;font:inherit;font-weight:600;cursor:pointer}
+@media (prefers-reduced-motion:reduce){.bp-code{transition:none}}
 </style>
 <script>
 /* שער תפוגה - גרסת לקוח בלבד */
@@ -841,7 +868,7 @@ section.intro{padding-top:70px;padding-bottom:70px}
     <div class="sec-head" data-reveal>
       <div class="eyebrow eyebrow--green">הכול במקום אחד</div>
       <h2 class="section-heading section-heading--dark">השוברים שלכם</h2>
-      <p class="section-sub section-sub--dark">כרטיס הטיסה ושני שוברים. בשדה בניס מראים לנהג את שובר ההסעה, ובקבלה של המלון את שובר המלון. מספיק להראות את המסך בטלפון.</p>
+      <p class="section-sub section-sub--dark">כרטיס הטיסה, ארבעת כרטיסי העלייה למטוס ושני שוברים. בשדה בניס מראים לנהג את שובר ההסעה, ובקבלה של המלון את שובר המלון. מספיק להראות את המסך בטלפון.</p>
     </div>
 
     <h3 class="sub-h" data-reveal>1. כרטיס הטיסה</h3>
@@ -849,7 +876,7 @@ section.intro{padding-top:70px;padding-bottom:70px}
       <div class="voucher-head"><span class="voucher-kind">כרטיס טיסה · <bdi dir="ltr">Lufthansa</bdi></span><span class="voucher-num"><small>סטטוס</small>הונפק</span></div>
       <dl>
         <div class="voucher-row"><dt>נוסעים</dt><dd>רחמים ורחלי<small>כרטיס אחד לכל ארבע הטיסות, הלוך 18.11 וחזור 22.11</small></dd></div>
-        <div class="voucher-row"><dt>צ'ק-אין</dt><dd>באתר או באפליקציה של לופטהנזה, 23 שעות לפני ההמראה<small>קוד ההזמנה של לופטהנזה: <bdi dir="ltr">83EKCG</bdi></small></dd></div>
+        <div class="voucher-row"><dt>צ'ק-אין</dt><dd>הלוך: נעשה, וכרטיסי העלייה כאן למטה. חזור: נפתח ביום שבת 21.11<small>קוד ההזמנה של לופטהנזה: <bdi dir="ltr">83EKCG</bdi></small></dd></div>
       </dl>
       <div class="doc-orig">
         <a class="doc-thumb" href="docs/flight-ticket.pdf" target="_blank" rel="noopener" aria-label="לפתוח את כרטיס הטיסה"><img src="docs/flight-ticket-1.jpg" alt="העמוד הראשון של כרטיס הטיסה" width="92" height="120" loading="lazy" decoding="async"></a>
@@ -858,6 +885,55 @@ section.intro{padding-top:70px;padding-bottom:70px}
         </div>
       </div>
     </div>
+
+    <h3 class="sub-h" data-reveal>כרטיסי העלייה למטוס, יום רביעי 18.11</h3>
+    <p class="section-sub section-sub--dark" data-reveal style="margin:0 0 4px">הצ'ק-אין נעשה, והמושבים צמודים. בבידוק הביטחוני ובשער סורקים את הברקוד ישר מהמסך. לפני הסריקה כדאי להעלות את בהירות הטלפון.</p>
+
+    <div class="bp-flight" data-reveal>
+      <div class="bp-fh"><b>תל אביב למינכן</b><span><bdi dir="ltr">LH681</bdi> · המראה 17:10</span></div>
+      <div class="bp-times">
+        <div><small>טרמינל</small><b>3</b></div>
+        <div><small>מסירת מזוודות עד</small><b>15:55</b></div>
+        <div class="bp-key"><small>עלייה למטוס</small><b>16:40</b></div>
+        <div><small>השער נסגר</small><b>16:55</b></div>
+      </div>
+      <div class="bp-pair">
+        <div class="bp">
+          <div class="bp-who"><b>רחמים</b><span>מושב<em><bdi dir="ltr">28B</bdi></em> · סבב עלייה 4</span></div>
+          <button type="button" class="bp-code" data-bp="docs/bp-rami_lh681.png" data-bp-title="רחמים · LH681 · מושב 28B" aria-label="להגדיל את כרטיס העלייה של רחמים"><img src="docs/bp-rami_lh681.png" alt="ברקוד כרטיס העלייה של רחמים" width="186" height="186" loading="lazy" decoding="async"></button>
+          <small class="bp-hint">נוגעים בברקוד והוא מתמלא על כל המסך</small>
+        </div>
+        <div class="bp">
+          <div class="bp-who"><b>רחלי</b><span>מושב<em><bdi dir="ltr">28C</bdi></em> · סבב עלייה 4</span></div>
+          <button type="button" class="bp-code" data-bp="docs/bp-racheli_lh681.png" data-bp-title="רחלי · LH681 · מושב 28C" aria-label="להגדיל את כרטיס העלייה של רחלי"><img src="docs/bp-racheli_lh681.png" alt="ברקוד כרטיס העלייה של רחלי" width="186" height="186" loading="lazy" decoding="async"></button>
+          <small class="bp-hint">נוגעים בברקוד והוא מתמלא על כל המסך</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="bp-flight" data-reveal>
+      <div class="bp-fh"><b>מינכן לניס</b><span><bdi dir="ltr">LH2274</bdi> · המראה 21:50</span></div>
+      <div class="bp-times">
+        <div><small>טרמינל</small><b>2</b></div>
+        <div><small>שער</small><b>K</b></div>
+        <div class="bp-key"><small>עלייה למטוס</small><b>21:20</b></div>
+        <div><small>השער נסגר</small><b>21:35</b></div>
+      </div>
+      <div class="bp-pair">
+        <div class="bp">
+          <div class="bp-who"><b>רחמים</b><span>מושב<em><bdi dir="ltr">20E</bdi></em> · סבב עלייה 3</span></div>
+          <button type="button" class="bp-code" data-bp="docs/bp-rami_lh2274.png" data-bp-title="רחמים · LH2274 · מושב 20E" aria-label="להגדיל את כרטיס העלייה של רחמים"><img src="docs/bp-rami_lh2274.png" alt="ברקוד כרטיס העלייה של רחמים" width="186" height="186" loading="lazy" decoding="async"></button>
+          <small class="bp-hint">נוגעים בברקוד והוא מתמלא על כל המסך</small>
+        </div>
+        <div class="bp">
+          <div class="bp-who"><b>רחלי</b><span>מושב<em><bdi dir="ltr">20F</bdi></em> · סבב עלייה 3</span></div>
+          <button type="button" class="bp-code" data-bp="docs/bp-racheli_lh2274.png" data-bp-title="רחלי · LH2274 · מושב 20F" aria-label="להגדיל את כרטיס העלייה של רחלי"><img src="docs/bp-racheli_lh2274.png" alt="ברקוד כרטיס העלייה של רחלי" width="186" height="186" loading="lazy" decoding="async"></button>
+          <small class="bp-hint">נוגעים בברקוד והוא מתמלא על כל המסך</small>
+        </div>
+      </div>
+    </div>
+    <p class="when-note" data-reveal>השער במינכן עשוי להשתנות. שווה להציץ במסכים בשדה. כרטיסי העלייה לטיסות החזרה יונפקו בצ'ק-אין, שנפתח ביום שבת 21.11.</p>
+
 
     <h3 class="sub-h" data-reveal>2. ההסעה מהשדה למלון</h3>
     <div class="voucher" data-reveal>
@@ -922,7 +998,7 @@ section.intro{padding-top:70px;padding-bottom:70px}
 
     <h3 class="sub-h" data-reveal>מה חשוב לדעת</h3>
     <div class="inc" data-reveal>
-      <div class="inc-row yes"><span class="ic">✓</span><div><b>ארבעה כרטיסי עלייה למטוס, שניים לכל אחד</b><small>שומרים אותם בטלפון. כדאי גם צילום מסך, למקרה שאין קליטה בשדה</small></div></div>
+      <div class="inc-row yes"><span class="ic">✓</span><div><b>הצ'ק-אין להלוך כבר נעשה</b><small>ארבעת כרטיסי העלייה מחכים בלשונית <button type="button" class="go-tab" data-go="vouchers">השוברים</button>. כדאי גם צילום מסך שלהם, למקרה שאין קליטה בשדה</small></div></div>
       <div class="inc-row yes"><span class="ic">✓</span><div><b>במינכן לא ניגשים לשום דלפק</b><small>הכרטיס לטיסה לניס כבר אצלכם. עוברים ביקורת דרכונים והולכים לשער</small></div></div>
       <div class="inc-row part"><span class="ic">~</span><div><b>חסר כרטיס לטיסה השנייה?</b><small>מדפיסים אותו בדלפק של לופטהנזה בנתב"ג, כשמוסרים את המזוודות</small></div></div>
     </div>
@@ -930,9 +1006,9 @@ section.intro{padding-top:70px;padding-bottom:70px}
     <h3 class="sub-h" data-reveal>בנתב"ג, יום רביעי</h3>
     <div class="days days--steps" data-reveal>
       <div class="d"><span class="d-n">1</span><div><b>מגיעים ב-14:10</b><small>טרמינל 3, שלוש שעות לפני ההמראה ב-17:10</small></div></div>
-      <div class="d"><span class="d-n">2</span><div><b>מוסרים מזוודות</b><small>בדלפק של לופטהנזה. המזוודות נשלחות עד ניס</small></div></div>
+      <div class="d"><span class="d-n">2</span><div><b>מוסרים מזוודות עד 15:55</b><small>בדלפק של לופטהנזה, אזור A בקומה 3. המזוודות נשלחות עד ניס</small></div></div>
       <div class="d d--key"><span class="d-n">3</span><div><b>בודקים לפני שממשיכים</b><small>על מדבקת המזוודה כתוב NCE, ולכל אחד יש שני כרטיסי עלייה</small></div></div>
-      <div class="d"><span class="d-n">4</span><div><b>ביטחון, דרכונים, שער</b><small>טיסה LH681 למינכן</small></div></div>
+      <div class="d"><span class="d-n">4</span><div><b>ביטחון, דרכונים, שער</b><small>טיסה LH681 למינכן. העלייה למטוס ב-16:40, והשער נסגר ב-16:55</small></div></div>
     </div>
 
     <h3 class="sub-h" data-reveal>מטען נייד: הכללים של לופטהנזה</h3>
@@ -975,7 +1051,7 @@ section.intro{padding-top:70px;padding-bottom:70px}
       <div class="d"><span class="d-n">1</span><div><b>יורדים והולכים</b><small>לפי השילוט לטיסות המשך ולביקורת דרכונים. שירותים וקפה אחרי הביקורת</small></div></div>
       <div class="d"><span class="d-n">2</span><div><b>דרכון ביד</b><small>בלי כיסוי. כתובת המלון ואישור הטיסה חזרה בהישג יד</small></div></div>
       <div class="d d--key"><span class="d-n">3</span><div><b>פנים וטביעות אצבע</b><small>מצלמים וסורקים, ואחר כך שוטר. הוא עשוי לשאול איפה אתם ישנים ומתי חוזרים</small></div></div>
-      <div class="d"><span class="d-n">4</span><div><b>ישר לשער</b><small>טיסה LH2274 לניס. מספר השער מופיע על המסכים</small></div></div>
+      <div class="d"><span class="d-n">4</span><div><b>ישר לשער K</b><small>טיסה LH2274 לניס, מטרמינל 2. העלייה ב-21:20 והשער נסגר ב-21:35. השער עשוי להשתנות, אז מציצים במסכים</small></div></div>
     </div>
 
     <h3 class="sub-h" data-reveal>מה חשוב לדעת</h3>
@@ -1705,6 +1781,20 @@ document.querySelectorAll('.logo-card').forEach(function(c){
 (function(){var w=document.getElementById('tripFilm');if(!w)return;var v=document.getElementById('tripFilmVideo'),b=w.querySelector('.trip-film__play');
 b.addEventListener('click',function(){w.classList.add('is-playing');v.play();});
 v.addEventListener('play',function(){w.classList.add('is-playing');});})();
+</script>
+<div class="bp-full" id="bpFull" hidden role="dialog" aria-modal="true" aria-label="כרטיס עלייה למטוס">
+      <b id="bpFullTitle"></b>
+      <img id="bpFullImg" alt="">
+      <small>מעלים את בהירות המסך ומגישים לסורק</small>
+      <button type="button" id="bpFullClose">סגירה</button>
+    </div>
+<script>
+(function(){var f=document.getElementById('bpFull');if(!f)return;var im=document.getElementById('bpFullImg'),t=document.getElementById('bpFullTitle'),last=null;
+function close(){f.hidden=true;document.body.style.overflow='';if(last)last.focus();}
+document.querySelectorAll('.bp-code').forEach(function(b){b.addEventListener('click',function(){last=b;im.src=b.dataset.bp;im.alt=b.dataset.bpTitle;t.textContent=b.dataset.bpTitle;f.hidden=false;document.body.style.overflow='hidden';document.getElementById('bpFullClose').focus();});});
+document.getElementById('bpFullClose').addEventListener('click',close);
+f.addEventListener('click',function(e){if(e.target===f||e.target===im)close();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!f.hidden)close();});})();
 </script>
 </body>
 </html>
