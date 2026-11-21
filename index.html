@@ -698,7 +698,11 @@ section.intro{padding-top:70px;padding-bottom:70px}
 .hs-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--cream-dark);font-size:.92rem;line-height:1.5}
 .hs-row:first-of-type{border-top:none}
 .hs-row small{display:block;color:var(--muted);font-size:.8rem}
-.hs-ok{flex:none;background:var(--sky-soft);color:var(--green);border-radius:20px;padding:3px 12px;font-size:.8rem;font-weight:700;white-space:nowrap}
+.hs-ok,.hs-late,.hs-bad{flex:none;border-radius:20px;padding:3px 12px;font-size:.8rem;font-weight:700;white-space:nowrap}
+.hs-ok{background:var(--sky-soft);color:var(--green)}
+.hs-late{background:var(--blush-soft);color:#8a3b4c}
+.hs-bad{background:#b3261e;color:#fff}
+.hs-row small.hs-gate{color:var(--text);font-weight:600}
 .home-stage{font-size:.78rem;font-weight:700;letter-spacing:.02em;color:var(--green);margin:22px 0 4px;padding-bottom:6px;border-bottom:1px solid var(--gold)}
 </style>
 <script>
@@ -813,12 +817,15 @@ section.intro{padding-top:70px;padding-bottom:70px}
     </div>
 
     <h3 class="sub-h" data-reveal id="home-day">יום ראשון, 22.11: הדרך הביתה, צעד אחרי צעד</h3>
+    <p class="when-note" data-reveal style="margin-top:0">אני עוקבת אחרי שתי הטיסות מחר בבוקר. אם השעה או השער משתנים, זה יתעדכן כאן.</p>
+    <!--HS-START-->
     <div class="home-status" data-reveal>
-      <h4>מצב הטיסות · נבדק ביום שבת, 21.11, ב-17:30</h4>
-      <div class="hs-row"><div><b>ניס-מינכן · <bdi dir="ltr">LH2275</bdi></b><small>08:20, נחיתה ב-09:40. בארבעת הימים האחרונים יצאה בזמן או כמה דקות לפני</small></div><span class="hs-ok">בזמן</span></div>
-      <div class="hs-row"><div><b>מינכן-תל אביב · <bdi dir="ltr">LH680</bdi></b><small>11:20, נחיתה ב-16:05. בארבעת הימים האחרונים נחתה בזמן, ולרוב מוקדם</small></div><span class="hs-ok">בזמן</span></div>
-      <div class="hs-row"><div><b>שערים</b><small>לופטהנזה קובעת אותם ביום הטיסה. הם יופיעו על כרטיסי העלייה ועל המסכים בשדה</small></div></div>
+      <h4>מצב הטיסות · עודכן ביום שבת, 21.11, ב-18:45</h4>
+      <div class="hs-row"><div><b>ניס-מינכן · <bdi dir="ltr">LH2275</bdi></b><small>המראה 08:20 · נחיתה 09:40</small><small class="hs-gate">טרמינל 1 · השער עוד לא פורסם</small><small>בארבעת הימים האחרונים יצאה בזמן או כמה דקות לפני</small></div><span class="hs-ok">בזמן</span></div>
+      <div class="hs-row"><div><b>מינכן-תל אביב · <bdi dir="ltr">LH680</bdi></b><small>המראה 11:20 · נחיתה 16:05</small><small class="hs-gate">טרמינל 2 · השער עוד לא פורסם</small><small>בארבעת הימים האחרונים נחתה בזמן, ולרוב מוקדם</small></div><span class="hs-ok">בזמן</span></div>
+      <div class="hs-row"><div><small>השער ושעת העלייה מופיעים גם על כרטיס העלייה באפליקציה של לופטהנזה ועל המסכים בשדה. אם יש סתירה, המסכים בשדה קובעים.</small></div></div>
     </div>
+    <!--HS-END-->
 
     <p class="when-note" data-reveal style="margin-top:0">המונית יוצאת מהמלון ב-06:00. אומרים לנהג: <bdi dir="ltr">Terminal 1, Lufthansa</bdi>. הנסיעה כחצי שעה.</p>
 
@@ -830,17 +837,18 @@ section.intro{padding-top:70px;padding-bottom:70px}
       <div class="d"><span class="d-n">4</span><div><b>בידוק ביטחוני והולכים לשער</b><small>בניס אין ביקורת דרכונים. העלייה למטוס מתחילה בסביבות 07:50, והשער נסגר כרבע שעה לפני ההמראה. השעות המדויקות על כרטיס העלייה</small></div></div>
     </div>
 
-    <div class="home-stage" data-reveal>במינכן · שעה ו-40 דקות</div>
+    <div class="home-stage" data-reveal>במינכן · שעה ו-40 דקות בין הטיסות</div>
     <div class="days days--steps" data-reveal>
-      <div class="d"><span class="d-n">5</span><div><b>09:40 נוחתים בטרמינל 2</b><small>לא אוספים מזוודות. יורדים והולכים לפי השילוט למספר השער של הטיסה לתל אביב</small></div></div>
-      <div class="d d--key"><span class="d-n">6</span><div><b>ביקורת דרכונים ביציאה מאירופה</b><small>הפרטים שלכם כבר שמורים מההלוך, ולכן היא קצרה יותר</small></div></div>
-      <div class="d"><span class="d-n">7</span><div><b>ישר לשער של <bdi dir="ltr">LH680</bdi></b><small>אם השער מתחיל באות L, נוסעים אליו ברכבת קצרה בתוך הטרמינל. קפה ושירותים יש גם ליד השער. העלייה למטוס בסביבות 10:50</small></div></div>
+      <div class="d"><span class="d-n">5</span><div><b>09:40 נוחתים בטרמינל 2</b><small>לא אוספים מזוודות, הן עוברות לבד לטיסה לתל אביב. יורדים מהמטוס והולכים לפי השלטים הצהובים <bdi dir="ltr">Connecting Flights</bdi> ולפי מספר השער שעל כרטיס העלייה</small></div></div>
+      <div class="d d--key"><span class="d-n">6</span><div><b>ביקורת דרכונים: יוצאים מאירופה</b><small>מניס למינכן טסים בתוך אירופה, והטיסה לתל אביב יוצאת מחוץ לה, ולכן כאן מראים דרכון. הפרטים שלכם כבר שמורים מההלוך, אז זה קצר יותר</small></div></div>
+      <div class="d"><span class="d-n">7</span><div><b>שער שמתחיל באות L? רכבת אחת קצרה</b><small>שערי L נמצאים בבניין הלוויין של טרמינל 2. רכבת תת-קרקעית מגיעה אליו כל 4 דקות, ונוסעת דקה. שער שמתחיל באות H נמצא באותו בניין, בלי רכבת</small></div></div>
+      <div class="d d--key"><span class="d-n">8</span><div><b>בדיקת ביטחון נוספת לטיסות לישראל</b><small>בכניסה לאזור השערים של הטיסה לתל אביב. לכן הולכים קודם לשער, ורק אחר כך קפה ושירותים. העלייה למטוס בסביבות 10:50</small></div></div>
     </div>
 
     <div class="home-stage" data-reveal>בנתב"ג · טרמינל 3</div>
     <div class="days days--steps" data-reveal>
-      <div class="d"><span class="d-n">8</span><div><b>16:05 נוחתים</b><small>ביקורת גבולות בעמדות האוטומטיות, עם הדרכון</small></div></div>
-      <div class="d"><span class="d-n">9</span><div><b>אוספים מזוודות ויוצאים</b><small>קניתם בחו"ל ביותר מ-200 דולר לאדם? יוצאים במסלול האדום ומצהירים. אחרת, במסלול הירוק</small></div></div>
+      <div class="d"><span class="d-n">9</span><div><b>16:05 נוחתים</b><small>ביקורת גבולות בעמדות האוטומטיות, עם הדרכון</small></div></div>
+      <div class="d"><span class="d-n">10</span><div><b>אוספים מזוודות ויוצאים</b><small>קניתם בחו"ל ביותר מ-200 דולר לאדם? יוצאים במסלול האדום ומצהירים. אחרת, במסלול הירוק</small></div></div>
     </div>
 
     <div class="tip" data-reveal><span class="tip-label">אם משהו מתעכב</span>כל הטיסות על כרטיס אחד. אם הטיסה מניס מאחרת ואתם מפספסים את הטיסה לתל אביב, לופטהנזה משבצת אתכם בטיסה הבאה, והמזוודות עוברות איתכם. במינכן ניגשים לדלפק השירות של לופטהנזה וכותבים לי בוואטסאפ.</div>
